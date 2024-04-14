@@ -1,1 +1,15 @@
-<p>header works!</p>
+<header class="header">
+  <div class="container">
+    <img class="logo" src="{{logoImg}}" alt="Лого">
+    <div class="btn-container">
+      <div class="sht-btn" [ngClass]="{'active': activeLink === 'shop'}" routerLink="/shop" (click)="setActive('shop')">Магазин</div>
+      <div class="sht-btn" [ngClass]="{'active': activeLink === 'production'}" routerLink="/production" (click)="setActive('production')">Виробництво</div>
+    </div>
+    <input class="search" placeholder="Пошук...">
+    <div class="btn-container">
+      <div class="sht-btn" [ngClass]="{'active': activeLink === 'recipes'}" routerLink="/recipes" (click)="setActive('recipes')">Рецепти</div>
+      <div class="sht-btn" [ngClass]="{'active': activeLink === 'about-wine'}" routerLink="/about-wine" (click)="setActive('about-wine')">Про вино</div>
+    </div>
+    <img class="basket" src="{{basketImg}}" alt="Корзина">
+  </div>
+</header>
