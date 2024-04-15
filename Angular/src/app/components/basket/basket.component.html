@@ -1,0 +1,17 @@
+<div class="backGround">
+
+</div>
+<div class="basket">
+  <div>Корзина</div>
+ <div class="productsContainer">
+ <app-basket-product *ngFor="let item of  basketsElements" [product]="item"></app-basket-product>
+
+ </div>
+<div class="totalPrice"></div>
+  <div class="continue btn">
+    Продовжити покупки
+  </div>
+   <div class="confirm btn">
+    Оформити замовлення
+  </div>
+</div>

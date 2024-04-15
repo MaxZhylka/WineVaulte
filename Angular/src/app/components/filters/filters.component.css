@@ -1,0 +1,40 @@
+
+.filters
+{
+
+  width: 310px;
+  position: fixed;
+  border-radius: 15px;
+  background-color: #393939;
+  color: #FFFFFF;
+  margin-left: 40px;
+  overflow: auto;
+
+}
+.header
+{
+  font-size: 32px;
+  text-align: center;
+}
+
+.f-header
+{
+  font-size: 28px;
+  margin-left: 10px;
+  padding-bottom: 2px;
+}
+.filter
+{
+  margin-left: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  font-size: 21px;
+  gap: 10px;
+
+}
+.container
+{
+  padding-bottom:10px;
+}

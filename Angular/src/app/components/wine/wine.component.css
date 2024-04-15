@@ -1,0 +1,65 @@
+.container
+{
+  width: 264px;
+  height: 370px;
+  background-color: #393939;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  align-content: center;
+  padding-top: 10px;
+  gap:10px;
+  transition: 0.2s;
+
+
+}
+.WineImage
+{
+  width: 58px;
+  height: 222px;
+  background-color: transparent;
+}
+.text
+{
+ width: 212px;
+  height: 56px;
+  font-size: 18px;
+  color:#FFFFFF;
+}
+.footer
+{
+  margin-top: 15px;
+  display: flex;
+  width: 215px;
+  justify-content: space-around;
+  height: 50px;
+}
+.price
+{
+  font-size: 40px;
+  color:#00D22E;
+}
+.color
+{
+  width:29px;
+  height: 44px;
+}
+.basket
+{
+  height:40px;
+  width: 37px;
+  transition: 0.2s;
+}
+.basket:active
+{
+  scale: 0.90;
+}
+.container:hover
+{
+  scale: 1.05;
+
+}
+
+

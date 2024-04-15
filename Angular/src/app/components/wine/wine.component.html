@@ -1,0 +1,10 @@
+<div class="container">
+
+  <img class="WineImage" [src]="Wine.image">
+  <div class="text"> {{Wine.description}}</div>
+  <div class="footer">
+    <div class="price">{{Wine.price+'₴'}}</div>
+    <img class="color" [src]="color">
+    <img class="basket" (click)="addToBasket()" [src]="basket">
+  </div>
+</div>

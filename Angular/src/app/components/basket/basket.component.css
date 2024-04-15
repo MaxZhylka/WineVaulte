@@ -1,0 +1,21 @@
+.backGround
+{
+  position: fixed;
+  left:0;
+  top:0;
+  background-color: black;
+  opacity: 0.5;
+  width: 100%;
+  height: 100%;
+  z-index: 1009;
+}
+.basket
+{
+  width: 1000px;
+  height: 735px;
+  position: fixed;
+  z-index: 1010;
+  left: calc(50% - 500px);
+  top: calc(50%- 367.5px);
+
+}

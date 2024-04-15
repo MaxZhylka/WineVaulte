@@ -10,6 +10,7 @@
       <div class="sht-btn" [ngClass]="{'active': activeLink === 'recipes'}" routerLink="/recipes" (click)="setActive('recipes')">Рецепти</div>
       <div class="sht-btn" [ngClass]="{'active': activeLink === 'about-wine'}" routerLink="/about-wine" (click)="setActive('about-wine')">Про вино</div>
     </div>
+    <div class="basketCounter">{{getCounter}}</div>
     <img class="basket" src="{{basketImg}}" alt="Корзина">
   </div>
 </header>

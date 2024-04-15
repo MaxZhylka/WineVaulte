@@ -1,7 +1,13 @@
 .header {
-  width: 100%;
+  width: 100% ;
+  margin-right: 17px;
   height: 100px;
   background-color: #171717;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding-bottom: 32px;
+  z-index: 1000;
 
 }
 
@@ -62,6 +68,7 @@
   width: 74px;
   height: 71px;
   transition: 0.2s;
+  margin-right: 10px;
 }
 .basket:hover
 {
@@ -70,4 +77,15 @@
 .basket:active
 {
   scale: 0.95;
+}
+.basketCounter
+{
+  background-color: #FFFFFF;
+  border-radius: 100px;
+  text-align: center;
+  align-content: center;
+  font-size: 40px;
+  width: 73px;
+  height: 73px;
+  color: black;
 }

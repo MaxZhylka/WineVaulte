@@ -1,1 +1,33 @@
-<p>filters works!</p>
+<aside class="filters">
+  <div class="header">Фільтри</div>
+  <div class="container">
+  <div class="f-header">Виробник</div>
+  <div class="filter" *ngFor="let item of producers">
+  <app-check-box-circle [id]="item"></app-check-box-circle>
+    <div>
+    {{item}}
+    </div>
+  </div>
+  <div class="f-header">Солодкість</div>
+  <div class="filter" *ngFor="let item of sugar; let i=index">
+  <app-check-box-circle [id]="sugarId[i]"></app-check-box-circle>
+    <div>
+    {{item}}
+    </div>
+  </div>
+  <div class="f-header">Колір</div>
+   <div class="filter" *ngFor="let item of color; let i=index">
+  <app-check-box-circle [id]="colorId[i]"></app-check-box-circle>
+    <div>
+    {{item}}
+    </div>
+   </div>
+  <div class="f-header">Країна виробник</div>
+  <div class="filter" *ngFor="let item of country; let i=index">
+  <app-check-box-circle [id]="countryId[i]"></app-check-box-circle>
+    <div>
+    {{item}}
+    </div>
+  </div>
+</div>
+</aside>
