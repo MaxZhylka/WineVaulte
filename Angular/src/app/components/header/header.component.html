@@ -11,6 +11,8 @@
       <div class="sht-btn" [ngClass]="{'active': activeLink === 'about-wine'}" routerLink="/about-wine" (click)="setActive('about-wine')">Про вино</div>
     </div>
     <div class="basketCounter">{{getCounter}}</div>
-    <img class="basket" src="{{basketImg}}" alt="Корзина">
+    <img class="basket" src="{{basketImg}}" alt="Корзина" (click)="display()">
   </div>
+  <app-basket (closeBasket)="display()" *ngIf="displayBasket"></app-basket>
 </header>
+

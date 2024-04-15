@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {ShopService} from "../../services/shop.service";
 
 @Component({
   selector: 'app-check-box-circle',
@@ -13,7 +14,8 @@ export class CheckBoxCircleComponent {
    @Output() toggleChange = new EventEmitter<boolean>();
   private _toggle: boolean = false;
 
-
+  constructor(private shopService:ShopService) {
+  }
 
   get toggle(): boolean {
     return this._toggle;
@@ -21,13 +23,18 @@ export class CheckBoxCircleComponent {
 
   set toggle(value: boolean) {
     this._toggle = value;
-    // Отправляем значение toggle в родительский компонент
+
     this.toggleChange.emit(this._toggle);
   }
 
   toggleImage() {
     this.currentImage = (this.currentImage === this.inspirOne) ? this.inspirTwo : this.inspirOne;
-    this.toggle = !this.toggle; // Это вызовет setter и отправит событие
+       if (this.id in this.shopService.Filters) {
+
+         this.shopService.Filters[this.id][0] = !this.shopService.Filters[this.id][0];
+       }
+       console.log(this.shopService.Filters);
+    this.toggle = !this.toggle;
   }
 
 

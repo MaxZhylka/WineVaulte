@@ -13,7 +13,8 @@ export class HeaderComponent {
   basketImg:string="assets/img/basket.png";
   logoImg: string="assets/img/Logo.webp" ;
     activeLink: string = 'shop';
-    counter:number= this.getCounter;
+
+    displayBasket:boolean=false;
     constructor(private shopService:ShopService) {
     }
   setActive(link: string): void {
@@ -22,5 +23,10 @@ export class HeaderComponent {
   get getCounter()
   {
     return this.shopService.basket.length;
+  }
+  display()
+  {
+    this.displayBasket=!this.displayBasket;
+
   }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {ShopService, Wine} from "../../services/shop.service";
 
 @Component({
@@ -8,7 +8,7 @@ import {ShopService, Wine} from "../../services/shop.service";
 })
 export class BasketComponent {
 
-
+  @Output() closeBasket:EventEmitter<void>= new EventEmitter<void>;
 
   constructor(private shopService:ShopService)
   {}
@@ -16,7 +16,6 @@ export class BasketComponent {
  get basketsElements(): [Wine, number][] {
     const countsMap = new Map<string, number>();
     const pairs: [Wine, number][] = [];
-
     this.shopService.basket.forEach(wine => {
       const key = wine.name;
       countsMap.set(key, (countsMap.get(key) || 0) + 1);
@@ -31,5 +30,18 @@ export class BasketComponent {
 
     return pairs;
   }
+ get totalPrice():number
+ {
+   let result=0;
 
+   this.shopService.basket.forEach(wine=>
+   {
+     result+=wine.price;
+   })
+   return result;
+ }
+ close()
+ {
+   this.closeBasket.emit();
+ }
 }

@@ -1,17 +1,19 @@
-<div class="backGround">
+<div class="backGround" (click)="close()">
 
 </div>
 <div class="basket">
-  <div>Корзина</div>
+  <div class="basketH">Корзина</div>
  <div class="productsContainer">
  <app-basket-product *ngFor="let item of  basketsElements" [product]="item"></app-basket-product>
 
  </div>
-<div class="totalPrice"></div>
-  <div class="continue btn">
+<div class="totalPrice">{{totalPrice+'₴'}}</div>
+  <div class="btn-container">
+  <div class="continue btn" (click)="close()">
     Продовжити покупки
   </div>
-   <div class="confirm btn">
+   <div class="confirm btn" (click)="close()">
     Оформити замовлення
   </div>
+    </div>
 </div>
