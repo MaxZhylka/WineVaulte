@@ -11,7 +11,7 @@ export class HeaderComponent {
 
   basketImg:string="assets/img/basket.png";
   logoImg: string="assets/img/Logo.webp" ;
-    activeLink: string = 'shop';
+    activeLink: string = '';
 
   setActive(link: string): void {
     this.activeLink = link;

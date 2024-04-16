@@ -1,0 +1,19 @@
+.mainTxt{
+  font-size: 24px;
+  color: black;
+  font-family: Inter, sans-serif;
+  position: absolute;
+  top: 18%;
+  left: 5%;
+  width: 82%;
+}
+.headerTxt{
+  position: absolute;
+  font-size: 40px;
+  color: black;
+  font-family: Inter,sans-serif;
+  font-weight: bold;
+  text-align: center;
+  top: 5%;
+  left: 5%;
+}
