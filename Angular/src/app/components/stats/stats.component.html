@@ -1,0 +1,32 @@
+<div class="stats">
+
+<ngx-charts-bar-vertical
+      [view]="view"
+      [results]="data"
+      [xAxis]="true"
+      [yAxis]="true"
+      [legend]="false"
+      [showXAxisLabel]="true"
+      [showYAxisLabel]="true"
+      [xAxisLabel]="xAxisLabel"
+      [yAxisLabel]="yAxisLabel"
+ *ngIf="displayRectangle">
+
+    </ngx-charts-bar-vertical>
+<ngx-charts-pie-chart
+  [view]="view"
+  [results]="data"
+  [legend]="false"
+  [labels]="true"
+  [doughnut]="false" *ngIf="displayCircle">
+</ngx-charts-pie-chart >
+  <div class="buttons">
+   <div class="header">Діаграми</div>
+<div class="buttons-container">
+  <div class="diagramBtn" (click)="displayNamesCounts()">Вино/Кількість на складі</div>
+  <div class="diagramBtn" (click)="displayColorsSugar()">Солодкість/Колір</div>
+  <div class="diagramBtn" (click)="displayPricesByCountry()">Країна/Середня ціна</div>
+   <div class="diagramBtn" (click)="displayCountryBottles()">Країна/Кількість пляшок</div>
+</div>
+    </div>
+</div>

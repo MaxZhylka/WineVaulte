@@ -11,3 +11,17 @@
 body{
   background-color: #171717;
 }
+.ngx-charts text {
+  fill: white;
+  font-size: 24px;
+}
+
+
+.ngx-charts .legend-labels text {
+  fill: white;
+
+}
+
+.ngx-charts .chart-tooltip {
+    font-size: 22px; /* Укажите нужный размер шрифта */
+}

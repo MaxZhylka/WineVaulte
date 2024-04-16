@@ -1,4 +1,4 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { NgModule } from '@angular/core';
 import {ShopService, Wine} from "../../services/shop.service";
 
@@ -8,7 +8,7 @@ import {ShopService, Wine} from "../../services/shop.service";
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
 
  @ViewChild('searchField') searchField!: ElementRef;
   basketImg:string="assets/img/basket.png";
@@ -40,7 +40,7 @@ export class HeaderComponent {
 getWines = () => {
     this.shopService.getWines().subscribe({
       next: (data: Wine[]) => {
-       this.Wines = data.sort((a, b) => b.count - a.count);
+       this.Wines = data.sort((a, b) => b.count - a.count);;
       },
       error: (error) => {
         console.error('Failed to load wines', error);

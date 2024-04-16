@@ -1,1 +1,4 @@
-<p>production works!</p>
+<app-production-header (Display)="setDisplay($event)" ></app-production-header>
+<app-stats *ngIf="display=='stats'"></app-stats>
+<app-orders *ngIf="display=='orders'"></app-orders>
+<app-storage *ngIf="display=='storage'"></app-storage>

@@ -1,13 +1,17 @@
 <div class="slider">
-  <div class="slide">
-    <img id="image" style="width: 100%;" [src]="getCurrentSlideUrl()">
-    <div class="headerTxt">{{getCurrentHeadText()}}</div>
-    <div class="mainTxt">{{getCurrentMainText()}}</div>
-    <div class="button">
-      <div class="circle" style="background-color: #FF6C6C" (click)="goTo(0)"></div>
-      <div class="circle" style="background-color: #F0F0F0" (click)="goTo(1)"></div>
-      <div class="circle" style="background-color: #FF86E4" (click)="goTo(2)"></div>
-      <div class="circle" style="background-color: #FFC045" (click)="goTo(3)"></div>
+  <div #slidesContainer class="slides-container">
+    <!-- Слайды с изображениями и текстом -->
+    <div *ngFor="let slide of slides; let i = index" class="slide" [class.active]="i === currentIndex">
+      <img class="img"[src]="slide.url" >
+      <div class="headerTxt">{{slide.headText}}</div>
+      <div class="mainTxt">{{slide.mainText}}</div>
     </div>
+  </div>
+  <!-- Навигационные кнопки -->
+  <div class="button">
+    <div class="circle" style="background-color: #FF6C6C" (click)="goTo(0)"></div>
+    <div class="circle" style="background-color: #F0F0F0" (click)="goTo(1)"></div>
+    <div class="circle" style="background-color: #FF86E4" (click)="goTo(2)"></div>
+    <div class="circle" style="background-color: #FFC045" (click)="goTo(3)"></div>
   </div>
 </div>

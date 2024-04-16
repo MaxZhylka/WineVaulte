@@ -39,8 +39,10 @@ export class WineComponent implements OnInit{
 }
 addToBasket()
 {
-  this.shopService.basket.push(this.Wine);
-  this.shopService.basket.sort((a, b) => a.price - b.price);
+  if(this.Wine.count>0) {
+    this.shopService.basket.push(this.Wine);
+    this.shopService.basket.sort((a, b) => a.price - b.price);
+  }
 }
 
 }

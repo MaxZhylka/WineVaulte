@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {WineShopModule} from "./modules/wine-shop/wine-shop.module";
-import {BrowserModule} from "@angular/platform-browser";
 import {AboutUsModule} from "./modules/about-us/about-us.module";
+
+
 
 
 
@@ -10,6 +11,7 @@ import {AboutUsModule} from "./modules/about-us/about-us.module";
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, WineShopModule, AboutUsModule],
+  providers: [],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

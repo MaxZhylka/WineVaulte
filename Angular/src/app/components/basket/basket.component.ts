@@ -44,4 +44,11 @@ export class BasketComponent {
  {
    this.closeBasket.emit();
  }
+  confirm()
+ {
+   this.shopService.wineOrders.push(this.basketsElements);
+   this.shopService.basket=[];
+   console.log(  this.shopService.wineOrders);
+   this.closeBasket.emit();
+ }
 }

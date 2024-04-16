@@ -13,13 +13,14 @@ export class ProductsComponent implements OnInit{
 
   ngOnInit() {
     this.getWines();
-
+     this.Wines=this.Wines.sort((a, b) => b.count - a.count);
   }
 
  getWines = () => {
     this.shopService.getWines().subscribe({
       next: (data: Wine[]) => {
-        this.Wines = data.sort((a, b) => b.count - a.count);
+        this.Wines = data;
+
       },
       error: (error) => {
         console.error('Failed to load wines', error);

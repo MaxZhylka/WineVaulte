@@ -14,7 +14,12 @@ import {BasketComponent} from "../../components/basket/basket.component";
 import {BasketProductComponent} from "../../components/basket-product/basket-product.component";
 import {SearchElComponent} from "../../components/serch-el/serch-el.component";
 import {FormsModule} from "@angular/forms";
-
+import {ProductionHeaderComponent} from "../../components/production-header/production-header.component";
+import {StatsComponent} from "../../components/stats/stats.component";
+import {StorageComponent} from "../../components/storage/storage.component";
+import {OrdersComponent} from "../../components/orders/orders.component";
+import {NgxChartsModule} from "@swimlane/ngx-charts";
+import {provideAnimations} from "@angular/platform-browser/animations";
 
 
 @NgModule({
@@ -28,16 +33,25 @@ import {FormsModule} from "@angular/forms";
       WineComponent,
       BasketComponent,
       BasketProductComponent,
-      SearchElComponent
+      SearchElComponent,
+      ProductionHeaderComponent,
+      StatsComponent,
+      StorageComponent,
+      OrdersComponent
     ],
   imports: [
     CommonModule,
     RouterLink,
-    FormsModule
+    FormsModule,
+    NgxChartsModule,
+
+
   ],
   exports: [HeaderComponent],
   providers:[ShopService,
    provideHttpClient(withFetch()),
-    { provide: LOCALE_ID, useValue: 'ru' }]
+    { provide: LOCALE_ID, useValue: 'ru' },
+  provideAnimations()]
+
 })
 export class WineShopModule { }
