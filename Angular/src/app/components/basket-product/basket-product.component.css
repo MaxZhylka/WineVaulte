@@ -1,0 +1,80 @@
+.container
+{
+ width: 998px;
+  height: 200px;
+ background-color: #171717;
+  color:#FFFFFF;
+  align-content: center;
+  text-align: center;
+  border-bottom: 1px solid white;
+  display: flex;
+}
+.bottle
+{
+  margin-top: 10px;
+  width:47px;
+  height:178px;
+  margin-left: 60px;
+
+}
+.productText
+{
+  font-size: 20px;
+  width:700px;
+  height: 34px;
+}
+.counterContainer
+{
+    padding-left:500px;
+  width:200px;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+
+}
+.btn
+{
+  width:50px;
+  height: 50px;
+  font-size: 40px;
+  text-align: center;
+  align-content: center;
+  cursor: pointer;
+  border-radius: 1000px;
+  transition: 0.2s;
+}
+
+.btn:hover
+{
+  background-color: #393939;
+}
+.minus
+{
+  margin-top: 30px;
+}
+.counter
+{
+  width:90px;
+  height: 50px;
+   border: 1px solid white;
+  font-size: 40px;
+  border-radius: 20px;
+}
+.price
+{
+  padding-left:700px;
+  width: 110px;
+  height: 50px;
+  font-size: 40px;
+
+}
+.productContainer
+{
+  margin-left: 10px;
+  width: 870px;
+  gap:10px;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  height: 160px;
+}

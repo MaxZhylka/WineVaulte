@@ -1,19 +1,43 @@
-import { NgModule } from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 import {WineShopSheetComponent} from "../../components/wine-shop-sheet/wine-shop-sheet.component";
 import {ProductionComponent} from "../../components/production/production.component";
 import {HeaderComponent} from "../../components/header/header.component";
-import {BrowserModule} from "@angular/platform-browser";
 import {CommonModule} from "@angular/common";
 import {RouterLink} from "@angular/router";
+import {FiltersComponent} from "../../components/filters/filters.component";
+import {CheckBoxCircleComponent} from "../../components/check-box-circle/check-box-circle.component";
+import {ProductsComponent} from "../../components/products/products.component";
+import {ShopService} from "../../services/shop.service";
+import {provideHttpClient, withFetch} from "@angular/common/http";
+import {WineComponent} from "../../components/wine/wine.component";
+import {BasketComponent} from "../../components/basket/basket.component";
+import {BasketProductComponent} from "../../components/basket-product/basket-product.component";
+import {SearchElComponent} from "../../components/serch-el/serch-el.component";
+import {FormsModule} from "@angular/forms";
 
 
 
 @NgModule({
-  declarations: [WineShopSheetComponent, ProductionComponent, HeaderComponent],
+  declarations:
+    [WineShopSheetComponent,
+      ProductionComponent,
+      HeaderComponent,
+      FiltersComponent,
+      CheckBoxCircleComponent,
+      ProductsComponent,
+      WineComponent,
+      BasketComponent,
+      BasketProductComponent,
+      SearchElComponent
+    ],
   imports: [
     CommonModule,
-    RouterLink
+    RouterLink,
+    FormsModule
   ],
-  exports: [HeaderComponent]
+  exports: [HeaderComponent],
+  providers:[ShopService,
+   provideHttpClient(withFetch()),
+    { provide: LOCALE_ID, useValue: 'ru' }]
 })
 export class WineShopModule { }
