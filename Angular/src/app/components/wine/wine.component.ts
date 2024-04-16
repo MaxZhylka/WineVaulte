@@ -8,8 +8,9 @@ import {ShopService, Wine} from "../../services/shop.service";
 })
 export class WineComponent implements OnInit{
   @Input() Wine!:Wine;
-  basket:string="../../../assets/img/basket.png"
+  basket:string="../../../assets/img/basket.png";
   color:string="../../../assets/img/";
+  noExist:string='../../../assets/img/noExists.png';
   constructor(private shopService:ShopService) {
 }
   ngOnInit() {

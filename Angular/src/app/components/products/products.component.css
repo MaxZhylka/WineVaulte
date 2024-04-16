@@ -1,6 +1,7 @@
 .productsContainer {
   margin-left: 382px;
   width: calc(100% - 422px);
+  position: absolute;
   z-index: 999;
   display: flex;
   flex-wrap: wrap;

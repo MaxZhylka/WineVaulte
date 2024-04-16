@@ -62,7 +62,7 @@ export class ShopService {
   sweet: [false, 'Солодке'],
   halfSweet: [false, 'Напівсолодке'],
   halfDry: [false, 'Напівсухе'],
-  Dry: [false, 'сухе'],
+  Dry: [false, 'Cухе'],
 
   White: [false, 'Біле'],
   Pink: [false, 'Рожеве'],

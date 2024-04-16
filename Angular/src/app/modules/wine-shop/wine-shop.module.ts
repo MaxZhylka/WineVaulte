@@ -12,6 +12,8 @@ import {provideHttpClient, withFetch} from "@angular/common/http";
 import {WineComponent} from "../../components/wine/wine.component";
 import {BasketComponent} from "../../components/basket/basket.component";
 import {BasketProductComponent} from "../../components/basket-product/basket-product.component";
+import {SearchElComponent} from "../../components/serch-el/serch-el.component";
+import {FormsModule} from "@angular/forms";
 
 
 
@@ -25,11 +27,13 @@ import {BasketProductComponent} from "../../components/basket-product/basket-pro
       ProductsComponent,
       WineComponent,
       BasketComponent,
-      BasketProductComponent
+      BasketProductComponent,
+      SearchElComponent
     ],
   imports: [
     CommonModule,
-    RouterLink
+    RouterLink,
+    FormsModule
   ],
   exports: [HeaderComponent],
   providers:[ShopService,

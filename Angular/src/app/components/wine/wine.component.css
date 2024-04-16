@@ -46,20 +46,37 @@
   width:29px;
   height: 44px;
 }
-.basket
-{
-  height:40px;
+.basket {
+  height: 40px;
   width: 37px;
   transition: 0.2s;
+  cursor: pointer;
+  transform: scale(1);
 }
-.basket:active
-{
-  scale: 0.90;
+
+
+
+.basket:hover {
+  transform: scale(1.05);
+  filter: brightness(70%) saturate(0%);
 }
+.basket:active {
+  transform: scale(0.90);
+}
+
 .container:hover
 {
   scale: 1.05;
 
 }
 
+.notExists
+{
+  position: absolute;
+  width: 264px;
+  height: 380px;
+  border-radius: 20px;
+  opacity: 50%;
+  margin-top: -10px;
 
+}

@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ShopService} from "../../services/shop.service";
 
 @Component({
@@ -9,32 +9,28 @@ import {ShopService} from "../../services/shop.service";
 export class CheckBoxCircleComponent {
   inspirOne: string = '../../../assets/img/untoggle.png';
   inspirTwo: string = '../../../assets/img/toggle.png';
-  @Input()id!: string;
-  currentImage: string = this.inspirOne;
-   @Output() toggleChange = new EventEmitter<boolean>();
-  private _toggle: boolean = false;
+  @Input() id!: string;
 
-  constructor(private shopService:ShopService) {
+  @Output() toggleChange = new EventEmitter<boolean>();
+
+
+  constructor(private shopService: ShopService) {
   }
 
-  get toggle(): boolean {
-    return this._toggle;
-  }
-
-  set toggle(value: boolean) {
-    this._toggle = value;
-
-    this.toggleChange.emit(this._toggle);
+  get currentImage() {
+    if (this.shopService.Filters[this.id][0]) {
+      return this.inspirTwo;
+    } else return this.inspirOne;
   }
 
   toggleImage() {
-    this.currentImage = (this.currentImage === this.inspirOne) ? this.inspirTwo : this.inspirOne;
-       if (this.id in this.shopService.Filters) {
 
-         this.shopService.Filters[this.id][0] = !this.shopService.Filters[this.id][0];
-       }
-       console.log(this.shopService.Filters);
-    this.toggle = !this.toggle;
+    if (this.id in this.shopService.Filters) {
+
+      this.shopService.Filters[this.id][0] = !this.shopService.Filters[this.id][0];
+    }
+    console.log(this.shopService.Filters);
+
   }
 
 
