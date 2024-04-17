@@ -1,0 +1,11 @@
+.storage
+{
+  width: 100%;
+  height: calc(100% - 170px);
+  position: absolute;
+  top: 170px;
+  z-index: 999;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}

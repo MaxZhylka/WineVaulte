@@ -1,8 +1,9 @@
+<div *ngIf="isBrowser&&display" [@fadeInOut]>
 <div class="backGround" (click)="close()">
 
 </div>
 <div class="basket">
-  <div class="basketH">Корзина</div>
+  <div class="basketH">Кошик</div>
  <div class="productsContainer">
  <app-basket-product *ngFor="let item of  basketsElements" [product]="item"></app-basket-product>
 
@@ -17,3 +18,5 @@
   </div>
     </div>
 </div>
+</div>
+<app-confirm-order *ngIf="isBrowser&&!display" (closeConfirm)="MergeData($event)" (closeOrder)="close()" ></app-confirm-order>

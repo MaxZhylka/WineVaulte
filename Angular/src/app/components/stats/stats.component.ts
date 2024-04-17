@@ -1,6 +1,8 @@
 import {AfterViewInit, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import { ShopService, Wine } from "../../services/shop.service";
 import {id} from "@swimlane/ngx-charts";
+import {DiagramService} from "../../services/diagram.service";
+
 
 @Component({
   selector: 'app-stats',
@@ -16,7 +18,7 @@ export class StatsComponent implements OnInit{
   displayCircle:boolean=false;
   displayRectangle:boolean=true;
 
-  constructor(private shopService: ShopService,
+  constructor(private shopService: DiagramService,
                private cdr: ChangeDetectorRef
   ) {
 

@@ -24,7 +24,8 @@
   width: 387px;
   height: 60px;
   background-color: #4E4E4E;
-
+  position: relative;
+    z-index: 1200;
 }
 .price
 {

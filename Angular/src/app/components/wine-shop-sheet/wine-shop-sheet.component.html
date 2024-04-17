@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="isBrowser" class="container" [@fadeInOut]>
 <app-filters></app-filters>
   <app-products></app-products>
 </div>

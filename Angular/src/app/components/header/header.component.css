@@ -90,10 +90,11 @@
 }
 .suggestions {
     top:31.5px;
-    position: absolute;
+      position: absolute;
     box-sizing: border-box;
     cursor: pointer;
     border-top: none;
+      z-index: 1200;
 
 }
 

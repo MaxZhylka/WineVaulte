@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, DoCheck, ElementRef, OnInit, QueryList, ViewChildren} from '@angular/core';
 import {ShopService} from "../../services/shop.service";
 import {Wine} from "../../services/shop.service";
 @Component({
@@ -7,19 +7,20 @@ import {Wine} from "../../services/shop.service";
   styleUrl: './products.component.css'
 })
 export class ProductsComponent implements OnInit{
+   @ViewChildren('itemElement') itemElements!: QueryList<ElementRef>;
  Wines:Wine[]=this.filterWines;
+   private oldWineLength = 15;
   constructor(public shopService:ShopService) {
   }
 
   ngOnInit() {
     this.getWines();
-     this.Wines=this.Wines.sort((a, b) => b.count - a.count);
   }
 
  getWines = () => {
     this.shopService.getWines().subscribe({
       next: (data: Wine[]) => {
-        this.Wines = data;
+        this.Wines = data.sort((a, b) => b.count - a.count);;
 
       },
       error: (error) => {
@@ -58,6 +59,7 @@ private checkFilterGroup(wine: Wine, filterGroup: [string, [boolean, string]][])
 
   });
 }
+
 
 private getWinePropertyByKey(key: string, wine: Wine): any {
   const propertyMap: { [key: string]: keyof Wine } = {

@@ -1,0 +1,34 @@
+<form [formGroup]="form" >
+  <div *ngIf="isBrowser" [@fadeInOut]>
+    <div class="backGround" (click)="close()"></div>
+    <div class="basket">
+      <div class="basketH">Оформлення замовлення</div>
+      <div class="inputContainer">
+        <div class="input-label">
+        <input class="input" formControlName="email" >
+        <div class="label" >Електронна пошта</div>
+          </div>
+         <div class="input-label">
+        <input class="input" formControlName="firstName" >
+        <div  class="label">Ім'я</div>
+          </div>
+         <div class="input-label">
+        <input  class="input" formControlName="lastName" >
+        <div class="label"> Прізвище</div>
+          </div>
+         <div class="input-label">
+        <input class="input" formControlName="address" >
+        <div class="label">Адреса</div>
+          </div>
+         <div class="input-label">
+        <input class="input" formControlName="phone" >
+        <div class="label">Телефон</div>
+            </div>
+      </div>
+      <div class="btn-container">
+        <div class="continue btn" (click)="close()">Продовжити покупки</div>
+        <div class="confirm btn" (click)="onSubmit()">Підтвердити</div>
+      </div>
+    </div>
+  </div>
+</form>

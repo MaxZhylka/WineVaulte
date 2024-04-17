@@ -1,0 +1,22 @@
+.orders
+{
+  width: 100%;
+  height: calc(100% - 170px);
+  position: absolute;
+  top: 170px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+
+}
+.order-container
+{
+  margin-top: 100px;
+  display: flex;
+  width: calc(100% - 100px);
+  height: 100%;
+  justify-content: start;
+  flex-direction: column;
+  align-items: center;
+
+}

@@ -20,6 +20,17 @@ export interface Wine
   price:number;
 
 }
+export interface OrderInfo {
+  email: string;
+  firstName: string;
+  lastName: string;
+  address: string;
+  phone: string;
+}
+export interface Order {
+  wines: Wine[];
+  orderInfo: OrderInfo;
+}
 interface Filter {
   Masi: [boolean, string];
   Trapiche: [boolean, string];
@@ -78,9 +89,7 @@ export class ShopService {
 
 };
  wines: Wine[] = [
-    { id: 1, name: "Masi Valpolicella Classico", count: 11, image: "http://127.0.0.1:8000/media/masiValpolicella_o3XqiDL.png", color: "Червоне", sugar: "Cухе", country: "Італія", producer: "Masi", description: "Вино Masi Valpolicella Classico Bonacosta, красное, сухое, 12%, 0,75 л", fullDescription: "Описание 1", volume: 0.75, strength: 12, exposureTime: "-", price: 870.0 },
-    { id: 2, name: "Masi Fresco di Masi Blanc", count: 55, image: "http://127.0.0.1:8000/media/masiFresco_mstRE0l.png", color: "Біле", sugar: "Cухе", country: "Італія", producer: "Masi", description: "Описание 2", fullDescription: "Описание 2", volume: 0.75, strength: 11, exposureTime: "-", price: 840.0 },
-    { id: 3, name: "Masi Rosato Trevenezie", count: 124, image: "http://127.0.0.1:8000/media/masiRosato_LaE1MU3.png", color: "Рожеве", sugar: "Cухе", country: "Італія", producer: "Masi", description: "Описание 3", fullDescription: "Описание 3", volume: 0.75, strength: 12.5, exposureTime: "-", price: 664.0 }
+
 ];
 
 
@@ -90,9 +99,95 @@ export class ShopService {
     return this.http.get<Wine[]>(this.baseurl);
   }
 
- wineOrders:any[]=[];
 
 
+wineOrders: Order[] = [
+  {
+    wines: [
+      {
+        id: 9,
+        name: "Torres Vina Esmeralda",
+        count: 55,
+        image: "http://127.0.0.1:8000/media/Torres_Vina_Esmeralda_4gIXdoq.png",
+        color: "Помаранчиве",
+        sugar: "Солодке",
+        country: "Іспанія",
+        producer: "Torres",
+        description: "Вино Torres Vina Esmeralda, біле, сухе, 11,5%, 0,75 л (33764)",
+        fullDescription: "Вино Torres (Торрес) Vina Esmeralda характеризується бархатистим гладким смаком, з ніжною солодкістю апельсинового меду та тривалим, свіжим післясмаком.\r\n\r\nКолір: блідо-солом'яний\r\n\r\nСмак: збалансований, гладкий\r\n\r\nАромат: квіткові ноти з відтінками яблука та винограду\r\n\r\nГастрономічне поєднання: морепродукти, риба, паштети\r\n\r\nТемпература подачі: 10-11°C\r\n\r\nСорт винограду:\r\n\r\nМускат Олександрійський\r\nГевюрцтрамінер\r\nРегіон: Каталонія\r\n\r\nВиробник: Torres, Іспанія.",
+        volume: 0.75,
+        strength: 11,
+        exposureTime: "-",
+        price: 322
+      },
+
+    ],
+    orderInfo: {
+      email: "dexhonesta@gmail.com",
+      firstName: "Max",
+      lastName: "Zhylka",
+      address: "ZapShose 35",
+      phone: "+380970954817"
+    }
+  },
+  {
+    wines: [
+      {
+        id: 9,
+        name: "Torres Vina Esmeralda",
+        count: 55,
+        image: "http://127.0.0.1:8000/media/Torres_Vina_Esmeralda_4gIXdoq.png",
+        color: "Помаранчиве",
+        sugar: "Солодке",
+        country: "Іспанія",
+        producer: "Torres",
+        description: "Вино Torres Vina Esmeralda, біле, сухе, 11,5%, 0,75 л (33764)",
+        fullDescription: "Вино Torres (Торрес) Vina Esmeralda характеризується бархатистим гладким смаком, з ніжною солодкістю апельсинового меду та тривалим, свіжим післясмаком.\r\n\r\nКолір: блідо-солом'яний\r\n\r\nСмак: збалансований, гладкий\r\n\r\nАромат: квіткові ноти з відтінками яблука та винограду\r\n\r\nГастрономічне поєднання: морепродукти, риба, паштети\r\n\r\nТемпература подачі: 10-11°C\r\n\r\nСорт винограду:\r\n\r\nМускат Олександрійський\r\nГевюрцтрамінер\r\nРегіон: Каталонія\r\n\r\nВиробник: Torres, Іспанія.",
+        volume: 0.75,
+        strength: 11,
+        exposureTime: "-",
+        price: 322
+      },
+
+    ],
+    orderInfo: {
+      email: "dexhonesta@gmail.com",
+      firstName: "Max",
+      lastName: "Zhylka",
+      address: "ZapShose 35",
+      phone: "+380970954817"
+    }
+  },
+  {
+    wines: [
+      {
+        id: 9,
+        name: "Torres Vina Esmeralda",
+        count: 55,
+        image: "http://127.0.0.1:8000/media/Torres_Vina_Esmeralda_4gIXdoq.png",
+        color: "Помаранчиве",
+        sugar: "Солодке",
+        country: "Іспанія",
+        producer: "Torres",
+        description: "Вино Torres Vina Esmeralda, біле, сухе, 11,5%, 0,75 л (33764)",
+        fullDescription: "Вино Torres (Торрес) Vina Esmeralda характеризується бархатистим гладким смаком, з ніжною солодкістю апельсинового меду та тривалим, свіжим післясмаком.\r\n\r\nКолір: блідо-солом'яний\r\n\r\nСмак: збалансований, гладкий\r\n\r\nАромат: квіткові ноти з відтінками яблука та винограду\r\n\r\nГастрономічне поєднання: морепродукти, риба, паштети\r\n\r\nТемпература подачі: 10-11°C\r\n\r\nСорт винограду:\r\n\r\nМускат Олександрійський\r\nГевюрцтрамінер\r\nРегіон: Каталонія\r\n\r\nВиробник: Torres, Іспанія.",
+        volume: 0.75,
+        strength: 11,
+        exposureTime: "-",
+        price: 322
+      },
+
+    ],
+    orderInfo: {
+      email: "dexhonesta@gmail.com",
+      firstName: "Max",
+      lastName: "Zhylka",
+      address: "ZapShose 35",
+      phone: "+380970954817"
+    }
+  }
+
+];
 
 
 }

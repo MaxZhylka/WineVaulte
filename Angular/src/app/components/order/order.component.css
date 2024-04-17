@@ -1,0 +1,34 @@
+.order
+{
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  transition: 0.2s;
+  color: #FFFFFF;
+  position: relative;
+  font-size: 26px;
+  cursor:pointer;
+
+}
+.order:hover
+{
+  background-color:#393939;
+}
+.personData
+{
+
+  width: 20%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+.price
+{
+  font-size: 30px;
+  color:#00D22E;
+}

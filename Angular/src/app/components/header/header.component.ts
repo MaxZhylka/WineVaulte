@@ -1,12 +1,15 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, Inject, OnInit, PLATFORM_ID, ViewChild} from '@angular/core';
 import { NgModule } from '@angular/core';
 import {ShopService, Wine} from "../../services/shop.service";
+import {animate, state, style, transition, trigger} from "@angular/animations";
+import {isPlatformBrowser} from "@angular/common";
 
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrl: './header.component.css',
+
 })
 export class HeaderComponent implements OnInit{
 
@@ -20,12 +23,21 @@ export class HeaderComponent implements OnInit{
     hintMargin={};
     hint:string="";
 
+    readonly:boolean=false;
     searchedWines: Wine[]=[];
     displayBasket:boolean=false;
     constructor(private shopService:ShopService) {
+
     }
   setActive(link: string): void {
-    this.activeLink = link;
+
+         if (link == 'production') {
+           this.readonly = true
+           this.searchQuery = '';
+         } else {
+           this.readonly = false;
+         }
+         this.activeLink = link;
   }
 
   get getCounter()
@@ -58,6 +70,10 @@ getWines = () => {
 }
   display()
   {
+    if(this.displayBasket==true)
+    {
+
+    }
     this.displayBasket=!this.displayBasket;
 
   }

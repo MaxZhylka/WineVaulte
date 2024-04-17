@@ -1,5 +1,7 @@
-import {Component, Input} from '@angular/core';
+import {Component, Inject, Input, PLATFORM_ID} from '@angular/core';
 import {SlideInterface} from "../slide-interface";
+import {fadeInOut} from "../fade";
+import {isPlatformBrowser} from "@angular/common";
 
 export interface WineInfo {
   url: string;
@@ -10,7 +12,10 @@ export interface WineInfo {
 @Component({
   selector: 'app-about-us',
   templateUrl: './about-us.component.html',
-  styleUrl: './about-us.component.css'
+  styleUrl: './about-us.component.css',
+  animations: [
+    fadeInOut
+  ]
 })
 export class AboutUsComponent {
 
@@ -42,4 +47,9 @@ export class AboutUsComponent {
 ];
 
   view: string="assets/img/img.png" ;
+    isBrowser: boolean;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+  }
 }

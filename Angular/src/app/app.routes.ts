@@ -4,7 +4,8 @@ import {ProductionComponent} from "./components/production/production.component"
 import {AboutUsComponent} from "./components/about-us/about-us.component";
 
 export const routes: Routes = [
-  {path:'shop',component:WineShopSheetComponent},
-  {path:'production', component:ProductionComponent},
-  {path:'about-wine', component:AboutUsComponent}
+{ path: 'shop', component: WineShopSheetComponent},
+{ path: 'production', component: ProductionComponent },
+{ path: 'about-wine', component: AboutUsComponent}
+
 ];

@@ -12,7 +12,7 @@
   <app-serch-el class="suggestions"  (mousedown)="ignoreBlur = true" [ResetFunction]="ResetFocus"  [ngStyle]="{'margin-top.px': 29+60 * i-1}" [wine]="wine"> </app-serch-el>
 </div>
           <div class="suggestionsContainer">
-   <input #searchField type="text" class="search"  placeholder="Пошук..."
+   <input [readOnly]="readonly"  #searchField type="text" class="search"  placeholder="Пошук..."
           [(ngModel)]="searchQuery" (click)="suggestWines()" (input)="suggestWines()" (keyup.enter)=" openFullWines()" (keydown.tab)="openFullWines()" (blur)="Blur()">
 <span class="hint" (mousedown)="ignoreBlur = true"  *ngIf="hint" [ngStyle]="hintMargin" (click)=" openFullWines()">{{ hint }} </span>
     </div>

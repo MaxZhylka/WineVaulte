@@ -1,0 +1,27 @@
+<div class="order" >
+  <div class="personData orderNmbr">Замовлення номер {{id+1}}</div>
+  <div class="personData">
+    <div class="name">
+      {{order.orderInfo.firstName}}
+    </div>
+    <div class="name">
+       {{order.orderInfo.lastName}}
+    </div>
+  </div>
+  <div class="personData">
+      <div class="contacts">
+        {{order.orderInfo.phone}}
+      </div>
+      <div class="contacts">
+         {{order.orderInfo.email}}
+      </div>
+  </div >
+  <div class="personData" >
+      {{order.orderInfo.address}}
+    </div>
+    <div class="personData price">
+      {{totalPrice+"₴"}}
+    </div>
+
+</div>
+<!--<app-full-order *ngIf="isBrowser&&display" (closeOrder)="close()" ></app-full-order>-->

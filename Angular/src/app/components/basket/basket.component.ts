@@ -1,17 +1,22 @@
-import {Component, EventEmitter, Output} from '@angular/core';
-import {ShopService, Wine} from "../../services/shop.service";
+import {Component, EventEmitter, Inject, Output, PLATFORM_ID} from '@angular/core';
+import {OrderInfo, ShopService, Wine} from "../../services/shop.service";
+import {fadeInOut} from "../fade";
+import {isPlatformBrowser} from "@angular/common";
 
 @Component({
   selector: 'app-basket',
   templateUrl: './basket.component.html',
-  styleUrl: './basket.component.css'
+  styleUrl: './basket.component.css',
+  animations:[fadeInOut]
 })
 export class BasketComponent {
 
+  isBrowser:boolean=false;
+  display:boolean=true;
   @Output() closeBasket:EventEmitter<void>= new EventEmitter<void>;
 
-  constructor(private shopService:ShopService)
-  {}
+  constructor(private shopService:ShopService,@Inject(PLATFORM_ID) private platformId: Object)
+  {this.isBrowser = isPlatformBrowser(this.platformId);}
 
  get basketsElements(): [Wine, number][] {
     const countsMap = new Map<string, number>();
@@ -46,9 +51,18 @@ export class BasketComponent {
  }
   confirm()
  {
-   this.shopService.wineOrders.push(this.basketsElements);
-   this.shopService.basket=[];
+  if(this.shopService.basket.length==0)
+  {
+    this.close();
+    return;
+  }
    console.log(  this.shopService.wineOrders);
-   this.closeBasket.emit();
+   this.display=false;
+ }
+ MergeData(event:OrderInfo)
+ {
+   this.shopService.wineOrders.push( {wines:this.shopService.basket, orderInfo:event});
+   this.shopService.basket=[];
+   this.close();
  }
 }

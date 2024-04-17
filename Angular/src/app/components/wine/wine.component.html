@@ -1,4 +1,4 @@
-<div class="container">
+<div *ngIf="isBrowser" class="container" >
 
   <img class="notExists" *ngIf="Wine.count==0" [src]="noExist">
   <img class="WineImage" [src]="Wine.image">
