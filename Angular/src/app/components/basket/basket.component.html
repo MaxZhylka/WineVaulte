@@ -19,4 +19,4 @@
     </div>
 </div>
 </div>
-<app-confirm-order *ngIf="isBrowser&&!display" (closeConfirm)="MergeData($event)" (closeOrder)="close()" ></app-confirm-order>
+<app-confirm-order *ngIf="!display" (closeConfirm)="MergeData($event)" (closeOrder)="close()" ></app-confirm-order>

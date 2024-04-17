@@ -25,6 +25,7 @@ import {LastsComponent} from "../../components/lasts/lasts.component";
 import {ConfrimOrderComponent} from "../../components/confrim-order/confrim-order.component";
 import {OrderComponent} from "../../components/order/order.component";
 import {FullOrderComponent} from "../../components/full-order/full-order.component";
+import {OrderProductComponent} from "../../components/order-product/order-product.component";
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import {FullOrderComponent} from "../../components/full-order/full-order.compone
       LastsComponent,
       ConfrimOrderComponent,
       OrderComponent,
-      FullOrderComponent
+      FullOrderComponent,
+      OrderProductComponent
     ],
   imports: [
     CommonModule,

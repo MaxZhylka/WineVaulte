@@ -47,6 +47,9 @@ export class BasketComponent {
  }
  close()
  {
+     if(this.isBrowser) {
+      document.body.style.overflowY = 'auto';
+    }
    this.closeBasket.emit();
  }
   confirm()
@@ -61,6 +64,9 @@ export class BasketComponent {
  }
  MergeData(event:OrderInfo)
  {
+     if(this.isBrowser) {
+      document.body.style.overflowY = 'auto';
+    }
    this.shopService.wineOrders.push( {wines:this.shopService.basket, orderInfo:event});
    this.shopService.basket=[];
    this.close();

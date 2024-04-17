@@ -15,7 +15,7 @@ fadeInOut
 
 export class ProductionComponent {
   display:string="stats";
-  isBrowser: boolean;
+  isBrowser: boolean=false;
     constructor(@Inject(PLATFORM_ID) private platformId: Object) {
     this.isBrowser = isPlatformBrowser(this.platformId);
   }

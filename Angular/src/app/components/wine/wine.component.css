@@ -11,6 +11,7 @@
   align-content: center;
   padding-top: 10px;
   gap:10px;
+
   transition: transform 300ms ease;
 }
 .WineImage

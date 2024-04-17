@@ -4,7 +4,7 @@
   height: calc(100% - 170px);
   position: absolute;
   top: 170px;
-  z-index: 999;
+  z-index: 900;
   display: flex;
   justify-content: space-around;
   align-items: center;

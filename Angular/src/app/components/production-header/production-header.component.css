@@ -12,6 +12,7 @@
 }
 .header
 {
+
   width: 100%;
   height: 50px;
   display: flex;
@@ -23,8 +24,8 @@
 
    position: fixed;
   left:0;
-  top:120px;
- z-index: 1000;
+  top:130px;
+
 }
 .btn.active
 {

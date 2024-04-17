@@ -1,4 +1,4 @@
-<div class="order" >
+<div class="order" (click)="open()" >
   <div class="personData orderNmbr">Замовлення номер {{id+1}}</div>
   <div class="personData">
     <div class="name">
@@ -24,4 +24,4 @@
     </div>
 
 </div>
-<!--<app-full-order *ngIf="isBrowser&&display" (closeOrder)="close()" ></app-full-order>-->
+<app-full-order class="full" *ngIf="display" (closeEmit)="close()" [basketElements]="order.wines" ></app-full-order>

@@ -1,1 +1,15 @@
-<p>full-order works!</p>
+<div *ngIf="isBrowser" [@fadeInOut]>
+<div class="backGround" (click)="close()">
+
+</div>
+<div class="basket">
+  <div class="basketH">Замовлення</div>
+ <div class="productsContainer">
+ <app-order-product *ngFor="let item of getWineCounts()" [product]="item"></app-order-product>
+
+ </div>
+<div class="totalPrice">{{getTotalPrice()+'₴'}}</div>
+
+</div>
+</div>
+

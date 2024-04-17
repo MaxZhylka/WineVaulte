@@ -2,7 +2,7 @@
   margin-left: 382px;
   width: calc(100% - 422px);
   position: absolute;
-  z-index: 999;
+  z-index: 998;
   display: flex;
   flex-wrap: wrap;
   gap: 32px;

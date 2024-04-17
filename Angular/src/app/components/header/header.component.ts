@@ -22,13 +22,12 @@ export class HeaderComponent implements OnInit{
     searchQuery:string="";
     hintMargin={};
     hint:string="";
-
+    isBrowser:boolean=false;
     readonly:boolean=false;
     searchedWines: Wine[]=[];
     displayBasket:boolean=false;
-    constructor(private shopService:ShopService) {
-
-    }
+     constructor(private shopService:ShopService,@Inject(PLATFORM_ID) private platformId: Object)
+  {this.isBrowser = isPlatformBrowser(this.platformId);}
   setActive(link: string): void {
 
          if (link == 'production') {
@@ -70,10 +69,8 @@ getWines = () => {
 }
   display()
   {
-    if(this.displayBasket==true)
-    {
 
-    }
+      document.body.style.overflowY = 'hidden';
     this.displayBasket=!this.displayBasket;
 
   }
