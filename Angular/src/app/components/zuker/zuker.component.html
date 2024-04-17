@@ -1,8 +1,8 @@
-<div style="display: flex;background-color: #F0F0F0;border-radius: 30px;height: 400px">
-  <div style="width: 80%">
-    <div class="mainTxt"></div>
-    <div class="headerTxt"></div>
+<div [style.background-color]="getRgb"  style="display: flex;border-radius: 30px;height: 400px;justify-content: center;">
+  <div style="width: 80%;display: flex;flex-direction: column;justify-content: space-evenly;">
+    <div class="headerTxt">{{getHeader}}</div>
+    <div class="mainTxt">{{getMain}}</div>
   </div>
-  <app-slider style="display: flex" ></app-slider>
+  <app-slider style="width: 10%;display: flex" ></app-slider>
 </div>
 

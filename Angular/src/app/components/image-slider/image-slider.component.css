@@ -1,8 +1,7 @@
 .slider {
   position: relative;
   overflow: hidden;
-  height: 350px;
-
+height: 400px;
 }
 .slides-container {
   position: relative;
