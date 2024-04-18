@@ -21,8 +21,15 @@ import {CommonModule} from "@angular/common";
 })
 export class AppComponent {
   title = 'Винный погреб';
+  displayBasket:boolean=false;
 
-
-
+  display(event:boolean)
+  {
+    this.displayBasket=event;
+  }
+  close()
+  {
+    this.displayBasket=false;
+  }
 
   }

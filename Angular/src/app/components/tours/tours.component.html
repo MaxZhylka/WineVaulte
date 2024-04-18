@@ -1,0 +1,54 @@
+<div *ngIf="isBrowser" class="container" [@fadeInOut]>
+
+
+  <div class="head-container">
+<div class="headerTxt">Ми підготували дегустації, екскурсії, тури,
+які підійдуть всім гостям.</div>
+    <div class="info-bar">
+
+      <div class="block-info">
+        <img class="img" [src]="src1">
+        <div class="text">Працівникам компаній для корпоративу</div>
+      </div>
+         <div class="block-info left" >
+        <img class="img" [src]="src2">
+        <div class="text">Молодій парі із рюкзаками</div>
+      </div>
+         <div class="block-info student">
+        <img class="img" [src]="src3">
+        <div class="text">Групі студентів</div>
+      </div>
+         <div class="block-info right">
+        <img class="img" [src]="src4">
+        <div class="text">Екскурсійній групі із турагенції</div>
+      </div>
+         <div class="block-info" >
+        <img class="img" [src]="src5">
+        <div class="text">Родині, яка мандрує автомобілем</div>
+      </div>
+
+    </div>
+    <div class="footerTxt">Не забудьте забронювати візит заздалегідь
+по телефону +38 098 765 43 21</div>
+  </div>
+
+  <div class="photoZoneText">Локації для фото</div>
+  <app-photo-zone-slider></app-photo-zone-slider>
+
+
+  <div class="photoZoneBotText">У нашому винному погребі ви можете спробувати різні сорти вина.
+Ми маємо червоні, білі і рожеві вина — на будь-який смак.
+Приходьте скуштувати і вибрати своє улюблене.
+Тут можна насолодитися смаком вина прямо серед бочок, де воно дозріває.
+Проведіть час у приємній атмосфері, відкриваючи для себе нові винні ноти.</div>
+  <div class="stepsText">Процес виготовлення нашого вина</div>
+  <app-steps-wine></app-steps-wine>
+
+  <div class="photoZoneBotText">Винний погріб - це не лише місце для дорослих,
+    але й можливість для дітей скуштувати свіжий сік. Вони зможуть насолодитися
+    цим освіжаючим напоєм і відчути радість від нового досвіду.</div>
+  <div class="stepsText">Наша локація на мапі</div>
+  <div #mapContainer style="width: 1200px; height: 300px; border-radius:20px; margin-bottom: 20px"></div>
+
+</div>
+

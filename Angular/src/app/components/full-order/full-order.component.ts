@@ -35,9 +35,7 @@ constructor(@Inject(PLATFORM_ID) private platformId: Object) {
   }
   close()
   {
-     if(this.isBrowser) {
-      document.body.style.overflowY = 'auto';
-    }
+     document.body.style.overflowY = 'scroll';
     this.closeEmit.emit();
   }
 }

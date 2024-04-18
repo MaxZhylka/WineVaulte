@@ -1,0 +1,43 @@
+@import "bootstrap/dist/css/bootstrap.css";
+.carousel-container
+{
+ width: 1200px;
+border-radius: 20px;
+
+}
+.carousel-item {
+  height: 700px;
+  overflow: hidden;
+  /*#7698d6 */
+  background-color: #b5cce6 ;
+
+}
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  min-height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-image: none; /* Удаляем стандартное изображение */
+}
+
+.carousel-control-prev-icon:after,
+.carousel-control-next-icon:after {
+  content: '';
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin-left: 40px;
+  background: #171717;
+  rotate: 90deg;
+ mask: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 8"><path fill="white" d="M2.83 0l-2.83 2.83 0.707 0.707 1.415-1.415v5.875h1v-5.875l1.415 1.415 0.707-0.707-2.83-2.83z"/></svg>') no-repeat center / contain;
+
+}
+
+.carousel-control-prev-icon:after {
+  rotate: -90deg;
+  margin-left: -60px;
+}

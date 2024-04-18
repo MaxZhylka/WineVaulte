@@ -2,10 +2,11 @@
   margin-left: 382px;
   width: calc(100% - 422px);
   position: absolute;
-  z-index: 998;
+  z-index: 960;
   display: flex;
   flex-wrap: wrap;
   gap: 32px;
+  padding-bottom: 10px;
    transition: transform 300ms ease;
 }
 

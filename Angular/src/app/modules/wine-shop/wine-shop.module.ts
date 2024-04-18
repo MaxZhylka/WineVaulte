@@ -26,6 +26,10 @@ import {ConfrimOrderComponent} from "../../components/confrim-order/confrim-orde
 import {OrderComponent} from "../../components/order/order.component";
 import {FullOrderComponent} from "../../components/full-order/full-order.component";
 import {OrderProductComponent} from "../../components/order-product/order-product.component";
+import {ToursComponent} from "../../components/tours/tours.component";
+import {PhotoZoneSliderComponent} from "../../components/photo-zone-slider/photo-zone-slider.component";
+import {GoogleMapsModule} from "@angular/google-maps";
+import {StepsWineComponent} from "../../components/steps-wine/steps-wine.component";
 
 
 @NgModule({
@@ -48,7 +52,10 @@ import {OrderProductComponent} from "../../components/order-product/order-produc
       ConfrimOrderComponent,
       OrderComponent,
       FullOrderComponent,
-      OrderProductComponent
+      OrderProductComponent,
+      ToursComponent,
+      PhotoZoneSliderComponent,
+      StepsWineComponent
     ],
   imports: [
     CommonModule,
@@ -56,10 +63,11 @@ import {OrderProductComponent} from "../../components/order-product/order-produc
     FormsModule,
     NgxChartsModule,
     ReactiveFormsModule,
+    GoogleMapsModule
 
 
   ],
-  exports: [HeaderComponent],
+  exports: [HeaderComponent, BasketComponent],
   providers:[ShopService,DiagramService,
    provideHttpClient(withFetch()),
     { provide: LOCALE_ID, useValue: 'ru' },

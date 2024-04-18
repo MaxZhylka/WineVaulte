@@ -9,7 +9,7 @@
 
         <div class="search-container">
        <div class="CitiesContainer" *ngFor="let wine of searchedWines; let i = index">
-  <app-serch-el class="suggestions"  (mousedown)="ignoreBlur = true" [ResetFunction]="ResetFocus"  [ngStyle]="{'margin-top.px': 29+60 * i-1}" [wine]="wine"> </app-serch-el>
+  <app-serch-el class="suggestions"  (mousedown)="ignoreBlur = true" (basketPush)="addToBasket($event)"  [ngStyle]="{'margin-top.px': 29+60 * i-1}" [wine]="wine"> </app-serch-el>
 </div>
           <div class="suggestionsContainer">
    <input [readOnly]="readonly"  #searchField type="text" class="search"  placeholder="Пошук..."
@@ -20,12 +20,12 @@
 
 
     <div class="btn-container">
-      <div class="sht-btn" [ngClass]="{'active': activeLink === 'recipes'}" routerLink="/recipes" (click)="setActive('recipes')">Рецепти</div>
+      <div class="sht-btn" [ngClass]="{'active': activeLink === 'tours'}" routerLink="/tours" (click)="setActive('tours')">Тури</div>
       <div class="sht-btn" [ngClass]="{'active': activeLink === 'about-wine'}" routerLink="/about-wine" (click)="setActive('about-wine')">Про вино</div>
     </div>
     <div class="basketCounter">{{getCounter}}</div>
     <img class="basket" src="{{basketImg}}" alt="Корзина" (click)="display()">
   </div>
-  <app-basket (closeBasket)="display()" *ngIf="displayBasket"></app-basket>
+
 </header>
 

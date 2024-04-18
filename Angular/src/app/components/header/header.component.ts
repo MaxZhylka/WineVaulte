@@ -1,4 +1,4 @@
-import {Component, ElementRef, Inject, OnInit, PLATFORM_ID, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Inject, OnInit, Output, PLATFORM_ID, ViewChild} from '@angular/core';
 import { NgModule } from '@angular/core';
 import {ShopService, Wine} from "../../services/shop.service";
 import {animate, state, style, transition, trigger} from "@angular/animations";
@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit{
   basketImg:string="assets/img/basket.png";
   logoImg: string="assets/img/Logo.webp" ;
     activeLink: string = 'shop';
+    @Output() BasketClose:EventEmitter<any>=new EventEmitter<any>();
     Wines!:Wine[];
     ignoreBlur: boolean= false;
     searchQuery:string="";
@@ -70,12 +71,14 @@ getWines = () => {
   display()
   {
 
-      document.body.style.overflowY = 'hidden';
-    this.displayBasket=!this.displayBasket;
 
+      document.body.style.overflowY = 'hidden';
+    this.displayBasket=true;
+      this.BasketClose.emit(this.displayBasket);
   }
   openFullWines()
   {
+    this.shopService.basket.push(this.searchedWines[0]);
     this.ResetFocus();
   }
   Blur() {
@@ -122,5 +125,10 @@ suggestWines() {
 
     }
   }
+}
+addToBasket(event:Wine)
+{
+  this.shopService.basket.push(event);
+   this.ResetFocus();
 }
 }

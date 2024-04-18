@@ -11,8 +11,7 @@
   align-content: center;
   padding-top: 10px;
   gap:10px;
-
-  transition: transform 300ms ease;
+  transition: 0.2s;
 }
 .WineImage
 {
@@ -22,6 +21,7 @@
 }
 .text
 {
+
  width: 212px;
   height: 56px;
   font-size: 18px;

@@ -10,7 +10,7 @@
   position: relative;
   font-size: 26px;
   cursor:pointer;
-
+  z-index: 900;
 
 }
 .order:hover

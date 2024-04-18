@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Wine} from "../../services/shop.service";
 
 @Component({
@@ -8,9 +8,9 @@ import {Wine} from "../../services/shop.service";
 })
 export class SearchElComponent {
 @Input() wine!:Wine;
- @Input() ResetFunction!: Function;
+ @Output() basketPush:EventEmitter<Wine>= new EventEmitter<Wine>() ;
 openFullWine()
 {
-  this.ResetFunction();
+  this.basketPush.emit(this.wine);
 }
 }
