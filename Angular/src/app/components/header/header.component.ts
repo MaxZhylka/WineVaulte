@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import {ShopService, Wine} from "../../services/shop.service";
 import {animate, state, style, transition, trigger} from "@angular/animations";
 import {isPlatformBrowser} from "@angular/common";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -27,7 +28,7 @@ export class HeaderComponent implements OnInit{
     readonly:boolean=false;
     searchedWines: Wine[]=[];
     displayBasket:boolean=false;
-     constructor(private shopService:ShopService,@Inject(PLATFORM_ID) private platformId: Object)
+     constructor(private router: Router, private shopService:ShopService,@Inject(PLATFORM_ID) private platformId: Object)
   {this.isBrowser = isPlatformBrowser(this.platformId);}
   setActive(link: string): void {
 
@@ -40,10 +41,12 @@ export class HeaderComponent implements OnInit{
          this.activeLink = link;
   }
 
-  get getCounter()
-  {
-    return this.shopService.basket.length;
-  }
+get getCounter() {
+  return this.shopService.basket.reduce((total, currentItem) => {
+    return total + Number(currentItem.count);
+  }, 0);
+}
+
     ngOnInit() {
     this.getWines();
 
@@ -76,9 +79,10 @@ getWines = () => {
     this.displayBasket=true;
       this.BasketClose.emit(this.displayBasket);
   }
-  openFullWines()
-  {
-    this.shopService.basket.push(this.searchedWines[0]);
+  openFullWines() {
+
+    this.shopService.sendData(this.searchedWines[0]);
+    this.router.navigate([`/full-product/${this.searchedWines[0].id}`]);
     this.ResetFocus();
   }
   Blur() {
@@ -128,7 +132,9 @@ suggestWines() {
 }
 addToBasket(event:Wine)
 {
-  this.shopService.basket.push(event);
+
+  this.shopService.sendData(event);
+  this.router.navigate([`/full-product/${event.id}`]);
    this.ResetFocus();
 }
 }

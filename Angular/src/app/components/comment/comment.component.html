@@ -1,0 +1,18 @@
+<div class="comment">
+  <div class="commentHeader">
+    <img class="userIcon" [src]="userIcon">
+    <div class="name">{{comment.name}}</div>
+    <app-stars [(rating)]="comment.value" [editable]="false"></app-stars>
+    <div class="commentValue">{{comment.value}}</div>
+    <div class="like">
+    <img class="likeImg"   (click)="comment.likes=comment.likes+1"[src]="like">
+      <div class="likeTxt">{{comment.likes}}</div>
+      </div>
+      <div class="like">
+    <img class="reportImg" (click)="comment.reports=comment.reports+1" [src]="report">
+      <div class="reportTxt" >{{comment.reports}}</div>
+      </div>
+
+  </div>
+  <div class="commentTxt">{{comment.text}}</div>
+</div>

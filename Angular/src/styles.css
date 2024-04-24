@@ -6,7 +6,10 @@
   left:0;
   top:0;
   overflow-y: scroll;
-
+    user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 body{
   background-color: #171717;
@@ -23,6 +26,6 @@ body{
 }
 
 .ngx-charts .chart-tooltip {
-    font-size: 22px; /* Укажите нужный размер шрифта */
+    font-size: 22px;
 }
 

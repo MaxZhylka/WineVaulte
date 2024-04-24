@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Inject, OnInit, Output, PLATFORM_ID} from '@angular/core';
 import {OrderInfo, ShopService, Wine} from "../../services/shop.service";
 import {isPlatformBrowser} from "@angular/common";
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormControl, FormGroup, isFormControl, Validators} from "@angular/forms";
 import {fadeInOut} from "../fade";
 
 @Component({
@@ -26,13 +26,13 @@ isBrowser:boolean=false;
       this.form.markAllAsTouched();
     }
   }
-  ngOnInit() {
+    ngOnInit() {
     this.form = new FormGroup({
-      email: new FormControl('', [Validators.required]),
-      firstName: new FormControl('', [Validators.required]),
-      lastName: new FormControl('', [Validators.required]),
-      address: new FormControl('', [Validators.required]),
-      phone: new FormControl('', [Validators.required])
+      email: new FormControl('', [Validators.required, Validators.email, Validators.maxLength(20)]),
+      firstName: new FormControl('', [Validators.required, Validators.maxLength(20)]),
+      lastName: new FormControl('', [Validators.required, Validators.maxLength(20)]),
+      address: new FormControl('', [Validators.required, Validators.maxLength(20)]),
+      phone: new FormControl('', [Validators.required, Validators.pattern(/^\+380\d{9}$/)]),
     });
   }
 
@@ -44,4 +44,5 @@ isBrowser:boolean=false;
 
  }
 
+  protected readonly isFormControl = isFormControl;
 }

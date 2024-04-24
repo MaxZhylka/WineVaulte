@@ -24,3 +24,13 @@ class Wine(models.Model):
     class Meta:
         verbose_name = 'Вино'
         verbose_name_plural = 'Вина'
+class Comment(models.Model):
+    wine = models.ForeignKey(Wine, on_delete=models.CASCADE, related_name='comments')
+    name = models.CharField(max_length=100)
+    text = models.TextField()
+    value = models.IntegerField(default=0)
+    likes = models.IntegerField(default=0)
+    reports = models.IntegerField(default=0)
+
+    def __str__(self):
+        return f'{self.name}: {self.text[:20]}...'

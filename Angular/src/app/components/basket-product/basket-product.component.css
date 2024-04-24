@@ -59,6 +59,10 @@
    border: 1px solid white;
   font-size: 40px;
   border-radius: 20px;
+  text-align: center;
+  background-color: #171717;
+  outline: none;
+  color:white;
 }
 .price
 {

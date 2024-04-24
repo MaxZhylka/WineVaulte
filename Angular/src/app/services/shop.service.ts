@@ -20,15 +20,26 @@ export interface Wine
   price:number;
 
 }
+export interface CommentData
+{
+  wine:number;
+  name:string;
+  text:string;
+  value:number;
+  likes:number;
+  reports:number;
+
+}
 export interface OrderInfo {
   email: string;
+  status: string;
   firstName: string;
   lastName: string;
   address: string;
   phone: string;
 }
 export interface Order {
-  wines: Wine[];
+  wines: WineBasket[];
   orderInfo: OrderInfo;
 }
 interface Filter {
@@ -56,13 +67,41 @@ interface Filter {
   France: [boolean, string];
    [key: string]: [boolean, string];
 }
+ export interface WineBasket
+{
+  wine:Wine;
+  count:number;
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class ShopService {
+
+
+  private apiUrl = 'http://127.0.0.1:8000/comments/';
+
+   getCommentsByWineId(wineId: number): Observable<CommentData[]> {
+    return this.http.get<CommentData[]>(`${this.apiUrl}?wine=${wineId}`);
+  }
+   addComment(commentData: any): Observable<any> {
+    return this.http.post(this.apiUrl, commentData, {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+  }
+
   private baseurl= 'http://127.0.0.1:8000/api/wines/';
-  basket:Wine[]=[];
+
+  basket:WineBasket[]=[];
+  private wineSource = new BehaviorSubject<any>(null);
+  currentWine = this.wineSource.asObservable();
+
+   sendData(wineData: any) {
+    this.wineSource.next(wineData);
+  }
+
   Filters: Filter = {
   Masi: [false, 'Masi'],
   Trapiche: [false, 'Trapiche'],
@@ -88,9 +127,7 @@ export class ShopService {
   France: [false, 'Франція']
 
 };
- wines: Wine[] = [
-
-];
+ wines: Wine[] = [];
 
 
   constructor(private http: HttpClient) { }
@@ -104,7 +141,7 @@ export class ShopService {
 wineOrders: Order[] = [
   {
     wines: [
-      {
+      { wine:{
         id: 9,
         name: "Torres Vina Esmeralda",
         count: 55,
@@ -119,11 +156,12 @@ wineOrders: Order[] = [
         strength: 11,
         exposureTime: "-",
         price: 322
-      },
-
+      }, count:2
+},
     ],
     orderInfo: {
       email: "dexhonesta@gmail.com",
+      status: "В обробці",
       firstName: "Max",
       lastName: "Zhylka",
       address: "ZapShose 35",
@@ -131,8 +169,8 @@ wineOrders: Order[] = [
     }
   },
   {
-    wines: [
-      {
+   wines: [
+      { wine:{
         id: 9,
         name: "Torres Vina Esmeralda",
         count: 55,
@@ -147,11 +185,12 @@ wineOrders: Order[] = [
         strength: 11,
         exposureTime: "-",
         price: 322
-      },
-
+      }, count:2
+},
     ],
     orderInfo: {
       email: "dexhonesta@gmail.com",
+      status: "В обробці",
       firstName: "Max",
       lastName: "Zhylka",
       address: "ZapShose 35",
@@ -159,8 +198,8 @@ wineOrders: Order[] = [
     }
   },
   {
-    wines: [
-      {
+   wines: [
+      { wine:{
         id: 9,
         name: "Torres Vina Esmeralda",
         count: 55,
@@ -175,11 +214,12 @@ wineOrders: Order[] = [
         strength: 11,
         exposureTime: "-",
         price: 322
-      },
-
+      }, count:2
+},
     ],
     orderInfo: {
       email: "dexhonesta@gmail.com",
+      status: "В обробці",
       firstName: "Max",
       lastName: "Zhylka",
       address: "ZapShose 35",

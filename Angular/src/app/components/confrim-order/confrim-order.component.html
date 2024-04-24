@@ -7,6 +7,11 @@
         <div class="input-label">
         <input class="input" formControlName="email" >
         <div class="label" >Електронна пошта</div>
+           <div *ngIf="!form.untouched " class="error">
+  <div class="error" *ngIf="form.get('email')?.errors?.['email']">Формат: post&#64;gamail.com</div>
+              <div class="error" *ngIf="form.get('email')?.errors?.['required']">Поле пусте</div>
+         </div>
+
           </div>
          <div class="input-label">
         <input class="input" formControlName="firstName" >
@@ -23,10 +28,19 @@
          <div class="input-label">
         <input class="input" formControlName="phone" >
         <div class="label">Телефон</div>
+               <div *ngIf="!form.untouched " class="error">
+  <div class="error" *ngIf="form.get('phone')?.errors?.['pattern']">Формат: +380123456789</div>
+    </div>
             </div>
       </div>
+      <!-- confirm-order.component.html -->
+
+
       <div class="btn-container">
         <div class="continue btn" (click)="close()">Продовжити покупки</div>
+
+
+
         <div class="confirm btn" (click)="onSubmit()">Підтвердити</div>
       </div>
     </div>

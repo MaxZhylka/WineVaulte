@@ -5,7 +5,7 @@
 <div class="basket">
   <div class="basketH">Кошик</div>
  <div class="productsContainer">
- <app-basket-product *ngFor="let item of  basketsElements" [product]="item"></app-basket-product>
+ <app-basket-product *ngFor="let item of  shopService.basket" [product]="item"></app-basket-product>
 
  </div>
 <div class="totalPrice">{{totalPrice+'₴'}}</div>

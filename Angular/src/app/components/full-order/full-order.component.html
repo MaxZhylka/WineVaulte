@@ -5,11 +5,20 @@
 <div class="basket">
   <div class="basketH">Замовлення</div>
  <div class="productsContainer">
- <app-order-product *ngFor="let item of getWineCounts()" [product]="item"></app-order-product>
+ <app-order-product *ngFor="let item of basketElements.wines" [product]="item"></app-order-product>
 
  </div>
-<div class="totalPrice">{{getTotalPrice()+'₴'}}</div>
+  <div>
 
+  </div >
+  <div class="footer">
+  <select class="select" [(ngModel)]="selectedStatus" (change)="onChange(selectedStatus)">
+  <option class="option" *ngFor="let status of statuses" [value]="status">
+   {{ status }}
+  </option>
+</select>
+<div class="totalPrice">{{getTotalPrice()+'₴'}}</div>
+    </div>
 </div>
 </div>
 

@@ -42,11 +42,11 @@
 }
 .totalPrice
 {
-  width: 850px;
+  text-align: center;
+  width: 100px;
   height: 50px;
   font-size: 40px;
-  align-content: end;
-  text-align: end;
+
 }
 .btn
 {
@@ -74,5 +74,24 @@
   height: 50px;
   display: flex;
   justify-content: space-between;
+
+}
+.select
+{
+
+  width: 300px;
+  font-size: 20px;
+  height: 30px;
+  color: white;
+  background-color: #4E4E4E;
+
+}
+.footer
+{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
 
 }

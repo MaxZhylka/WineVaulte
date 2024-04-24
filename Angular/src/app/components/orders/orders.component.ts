@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ShopService} from "../../services/shop.service";
+import {Order, ShopService} from "../../services/shop.service";
 
 @Component({
   selector: 'app-orders',
@@ -7,10 +7,25 @@ import {ShopService} from "../../services/shop.service";
   styleUrl: './orders.component.css'
 })
 export class OrdersComponent implements OnInit{
+    display:boolean=false;
+    order!:Order;
 
   constructor(protected shopService:ShopService) {
   }
   ngOnInit() {
     console.log(this.shopService.wineOrders)
+  }
+  openOrder(event:Order)
+  {
+    this.order=event;
+    this.display=true;
+  }
+
+    close()
+  {
+
+
+
+    this.display=false;
   }
 }

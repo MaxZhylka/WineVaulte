@@ -1,0 +1,9 @@
+
+<div class="star-rating">
+  <span *ngFor="let star of stars"
+        (click)="isClickable() && selectRating(star)"
+        [class.filled]="star <= rating"
+        [class.non-clickable]="!isClickable()">
+    ★
+  </span>
+</div>

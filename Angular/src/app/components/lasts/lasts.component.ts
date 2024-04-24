@@ -24,7 +24,7 @@ ngOnInit() {
     if(this.Wine.count==0)
     {
       this.backGroundColor='#FF0000'
-      return 'СКІНЧИЛОСЯ!!!'
+      return 'ЗАКІНЧИЛОСЯ!'
     }
     if(this.Wine.count<=10)
     {

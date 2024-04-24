@@ -3,10 +3,13 @@ import {WineShopSheetComponent} from "./components/wine-shop-sheet/wine-shop-she
 import {ProductionComponent} from "./components/production/production.component";
 import {AboutUsComponent} from "./components/about-us/about-us.component";
 import {ToursComponent} from "./components/tours/tours.component";
+import {FullProductComponent} from "./components/full-product/full-product.component";
 
 export const routes: Routes = [
 { path: 'shop', component: WineShopSheetComponent},
 { path: 'production', component: ProductionComponent },
 { path: 'about-wine', component: AboutUsComponent},
-  {path: 'tours', component: ToursComponent}
+{ path: 'tours', component: ToursComponent},
+{ path: 'full-product', component: FullProductComponent },
+{ path: 'full-product/:id', component: FullProductComponent},
 ];

@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Order, OrderInfo, Wine} from "../../services/shop.service";
 
 @Component({
@@ -9,12 +9,13 @@ import {Order, OrderInfo, Wine} from "../../services/shop.service";
 export class OrderComponent {
  @Input() order!:Order;
   @Input() id!:number;
-  display:boolean=false;
+  @Output() openOrder:EventEmitter<Order>=new EventEmitter<Order>;
+
   get totalPrice(): number {
     let total = 0;
     if (this.order ) {
       this.order.wines.forEach(wine => {
-        total += wine.price;
+        total += wine.wine.price;
       });
     }
     return total;
@@ -22,13 +23,7 @@ export class OrderComponent {
   open()
   {
      document.body.style.overflowY = 'hidden';
-    this.display=true;
+   this.openOrder.emit(this.order);
   }
-  close()
-  {
 
-
-
-    this.display=false;
-  }
 }

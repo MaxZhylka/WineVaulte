@@ -5,7 +5,7 @@
   height: calc(100% - 170px);
   position: absolute;
   top: 170px;
-  z-index: 1000;
+  z-index: 900;
   display: flex;
   flex-direction: column;
 
@@ -20,4 +20,29 @@
   flex-direction: column;
   align-items: center;
 
+}
+.orders-header
+{
+  margin-left: -7px;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  transition: 0.2s;
+  color: #FFFFFF;
+  position: relative;
+  font-size: 26px;
+  z-index: 900;
+
+}
+.text
+{
+    width: 16%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
 }

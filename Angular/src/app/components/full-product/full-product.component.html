@@ -1,0 +1,80 @@
+
+<div class="fullProductContainer">
+  <div class="leftColumn">
+  <div  *ngIf="wine" class="aboutProduct">
+    <img class="bottle" [src]="wine.image">
+    <div class="productInfo">
+      <div class="header">{{wine.name}}</div>
+      <div class="reviews">
+       <app-stars [editable]="false" [(rating)]="currentRating"></app-stars>
+<div class="ratingValue">{{ currentRating }}</div>
+        <div class="reviewsCount" > {{countComment}}</div>
+      </div >
+
+      <div class="abilitiesHeader">Характеристики</div>
+      <div class="abilities">
+        <div class="ability">
+          <div class="text">Бренд</div>
+          <div class="data">{{wine.producer}}</div>
+        </div>
+          <div class="ability">
+          <div class="text">Колір</div>
+          <div class="data">{{wine.color}}</div>
+        </div>
+          <div class="ability">
+          <div class="text">Солодкість</div>
+          <div class="data">{{wine.sugar}}</div>
+        </div>
+          <div class="ability">
+          <div class="text">Міцність</div>
+          <div class="data">{{wine.strength}}</div>
+        </div>
+          <div class="ability">
+          <div class="text">Країна походження</div>
+          <div class="data">{{wine.country}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+<div *ngIf="wine" class="fullDescription">
+  {{wine.fullDescription}}
+</div>
+    <div class="comments">
+    <div class="headerPurchase" >Відгуки</div>
+      <div class="headerPurchase" *ngIf="comments.length==0"> Відгуків поки немає</div>
+ <app-comment *ngFor="let item of comments" [comment]="item"></app-comment>
+      </div>
+</div>
+
+
+  <form [formGroup]="basketForm" >
+  <aside *ngIf="wine" class="sidebar">
+    <div class="purchase">
+      <div class="headerPurchase" *ngIf="wine.count>0">В наявності</div>
+      <div class="headerPurchase" *ngIf="wine.count==0">Немає</div>
+      <div class="price-Counter-Container">
+        <div class="price">{{wine.price+"₴"}}</div>
+          <div class="counterContainer">
+  <div class="btn" (click)="pluse()">+</div>
+  <input class="counter"  formControlName="count"   [(ngModel)]="count">
+  <div class="btn" (click)="minus()"> <p class="minus">–</p></div>
+  </div>
+
+      </div>
+      <div class="submit" (click)="add()">Купити</div>
+    </div>
+    <div class="warning">
+      <img class="warningImg" [src]="warning">
+      <div class="warningText">Придбати алкогольні товари можуть лише особи які досягли 18 років!</div>
+    </div>
+          <div class="addComment" [formGroup]="commentForm">
+        <div class="headerPurchase">Залиште відгук!</div>
+          <app-stars [editable]="true" [(rating)]="rating"></app-stars>
+          <input class="inputName" formControlName="name" type="text" placeholder="Введіть ім'я">
+          <textarea class="inputComment" formControlName="text"></textarea>
+          <div class="submit" (click)="send()">Надіслати</div>
+      </div>
+  </aside>
+  </form>
+
+</div>

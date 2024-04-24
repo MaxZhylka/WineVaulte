@@ -1,4 +1,4 @@
-<div *ngIf="isBrowser" class="container" >
+<div *ngIf="isBrowser" class="container" (click)="openFullProduct($event)" >
 
   <img class="notExists" *ngIf="Wine.count==0" [src]="noExist">
   <img class="WineImage" [src]="Wine.image">
@@ -6,6 +6,6 @@
   <div class="footer">
     <div class="price">{{Wine.price+'₴'}}</div>
     <img class="color" [src]="color">
-    <img class="basket" (click)="addToBasket()" [src]="basket">
+    <img class="basket" (click)="addToBasket($event)" [src]="basket">
   </div>
 </div>

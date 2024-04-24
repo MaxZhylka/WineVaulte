@@ -1,0 +1,105 @@
+.comment
+{
+  width: 825px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  color: #FFFFFF;
+  background-color: #393939;
+  border-radius: 20px;
+}
+.commentHeader
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  align-items: center;
+  width: 825px;
+  height: 100px;
+  align-content: center;
+
+}
+.userIcon
+{
+  margin-left: -15px;
+  width: 78px;
+  height: 78px;
+}
+.name
+{
+
+  height: 100px;
+  text-align: center;
+  align-content: center;
+  font-size: 26px;
+
+}
+.commentValue
+{
+ color: #FaFF00;
+  font-size: 22px;
+}
+.like
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  gap: 5px;
+  align-items: center;
+  color:#D9D9D9;
+  cursor: pointer;
+
+}
+.likeImg
+{
+  width: 37px;
+  height: 33px;
+  transition: 0.2s;
+}
+.likeImg:hover
+{
+  scale:1.2;
+}
+.likeImg:active
+{
+  scale:0.95;
+}
+
+.likeTxt
+{
+  font-size: 14px;
+  text-align: center;
+  width: 37px;
+  color:#ffffff;
+}
+.reportImg
+{
+  width: 27.4px;
+  height: 33px;
+  transition: 0.2s;
+}
+.reportImg:hover
+{
+  scale:1.2;
+}
+.reportImg:active
+{
+  scale:0.95;
+}
+.commentTxt
+{
+  width: 785px;
+  background-color: #525252;
+  border-radius: 20px;
+  min-height: 200px;
+  font-size: 24px;
+  padding: 24px;
+}
+.reportTxt
+{
+  width: 27.4px;
+  font-size: 14px;
+}

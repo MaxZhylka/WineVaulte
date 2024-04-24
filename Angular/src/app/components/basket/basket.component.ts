@@ -2,6 +2,7 @@ import {Component, EventEmitter, Inject, Output, PLATFORM_ID} from '@angular/cor
 import {OrderInfo, ShopService, Wine} from "../../services/shop.service";
 import {fadeInOut} from "../fade";
 import {isPlatformBrowser} from "@angular/common";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-basket',
@@ -15,22 +16,22 @@ export class BasketComponent {
   display:boolean=true;
   @Output() closeBasket:EventEmitter<void>= new EventEmitter<void>;
 
-  constructor(private shopService:ShopService,@Inject(PLATFORM_ID) private platformId: Object)
+  constructor(protected shopService:ShopService, @Inject(PLATFORM_ID) private platformId: Object)
   {this.isBrowser = isPlatformBrowser(this.platformId);}
 
  get basketsElements(): [Wine, number][] {
     const countsMap = new Map<string, number>();
     const pairs: [Wine, number][] = [];
     this.shopService.basket.forEach(wine => {
-      const key = wine.name;
+      const key = wine.wine.name;
       countsMap.set(key, (countsMap.get(key) || 0) + 1);
     });
 
 
     countsMap.forEach((count, name) => {
-      const winesWithName = this.shopService.basket.filter(wine => wine.name === name);
+      const winesWithName = this.shopService.basket.filter(wine => wine.wine.name === name);
       const wine = winesWithName[0];
-      pairs.push([wine, count]);
+      pairs.push([wine.wine, count]);
     });
 
     return pairs;
@@ -41,7 +42,7 @@ export class BasketComponent {
 
    this.shopService.basket.forEach(wine=>
    {
-     result+=wine.price;
+     result+=wine.wine.price*wine.count;
    })
    return result;
  }
@@ -68,4 +69,5 @@ export class BasketComponent {
    this.shopService.basket=[];
    this.close();
  }
+
 }

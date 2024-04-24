@@ -30,6 +30,9 @@ import {ToursComponent} from "../../components/tours/tours.component";
 import {PhotoZoneSliderComponent} from "../../components/photo-zone-slider/photo-zone-slider.component";
 import {GoogleMapsModule} from "@angular/google-maps";
 import {StepsWineComponent} from "../../components/steps-wine/steps-wine.component";
+import {FullProductComponent} from "../../components/full-product/full-product.component";
+import {CommentComponent} from "../../components/comment/comment.component";
+import {StarRatingComponent} from "../../components/stars/stars.component";
 
 
 @NgModule({
@@ -55,7 +58,10 @@ import {StepsWineComponent} from "../../components/steps-wine/steps-wine.compone
       OrderProductComponent,
       ToursComponent,
       PhotoZoneSliderComponent,
-      StepsWineComponent
+      StepsWineComponent,
+      FullProductComponent,
+      CommentComponent,
+      StarRatingComponent
     ],
   imports: [
     CommonModule,
@@ -63,7 +69,7 @@ import {StepsWineComponent} from "../../components/steps-wine/steps-wine.compone
     FormsModule,
     NgxChartsModule,
     ReactiveFormsModule,
-    GoogleMapsModule
+
 
 
   ],

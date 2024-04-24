@@ -1,6 +1,28 @@
 <div class="orders">
 
+    <div class="orders-header">
+      <div class="text">
+        Номер замовлення
+      </div>
+       <div class="text">
+         Статус
+      </div>
+       <div class="text">
+         Прізвище та ім'я
+      </div>
+       <div class="text">
+         Контакти
+      </div>
+       <div class="text">
+         Адреса
+      </div>
+       <div class="text">
+         Ціна
+      </div>
+    </div>
+    <app-order (openOrder)="openOrder($event)" *ngFor="let order of shopService.wineOrders; let i=index" [id]="i" [order]="order"></app-order>
 
-    <app-order *ngFor="let order of shopService.wineOrders; let i=index" [id]="i" [order]="order"></app-order>
 
 </div>
+
+<app-full-order class="full" *ngIf="display" (closeEmit)="close()" [basketElements]="order" ></app-full-order>

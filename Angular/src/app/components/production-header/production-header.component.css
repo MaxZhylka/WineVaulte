@@ -21,7 +21,7 @@
   align-content: center;
   background-color: #171717;
   color:#FFFFFF;
-
+  z-index: 901;
    position: fixed;
   left:0;
   top:130px;
