@@ -1,17 +1,21 @@
-import {ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, Inject, Input, OnInit, PLATFORM_ID} from '@angular/core';
 import {tap} from "rxjs/operators";
 import {FormControl, FormGroup} from "@angular/forms";
 import {CommentData, ShopService, Wine} from "../../services/shop.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {isPlatformBrowser} from "@angular/common";
+import {fadeInOut} from "../fade";
 
 
 @Component({
   selector: 'app-full-product',
   templateUrl: './full-product.component.html',
-  styleUrl: './full-product.component.css'
+  styleUrl: './full-product.component.css',
+  animations:[fadeInOut]
 })
 export class FullProductComponent implements OnInit{
 
+  isBrowser:boolean=false;
   comments:CommentData[]=[];
   warning:string="assets/img/warning.png"
   wine!:Wine;
@@ -110,7 +114,8 @@ updateRatings() {
     this.currentRating = parseFloat(average.toFixed(1)); // Округляем до десятых
 }
 
-  constructor(private cdr: ChangeDetectorRef,private router: Router, public shopService:ShopService, private route: ActivatedRoute) {
+  constructor(@Inject(PLATFORM_ID) private platformId: Object,private cdr: ChangeDetectorRef,private router: Router, public shopService:ShopService, private route: ActivatedRoute) {
+   this.isBrowser = isPlatformBrowser(this.platformId);
   }
 
   pluse()

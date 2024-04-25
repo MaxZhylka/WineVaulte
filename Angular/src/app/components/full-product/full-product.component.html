@@ -1,5 +1,5 @@
 
-<div class="fullProductContainer">
+<div class="fullProductContainer" *ngIf="isBrowser" @fadeInOut>
   <div class="leftColumn">
   <div  *ngIf="wine" class="aboutProduct">
     <img class="bottle" [src]="wine.image">

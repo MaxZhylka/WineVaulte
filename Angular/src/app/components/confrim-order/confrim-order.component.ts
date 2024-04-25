@@ -29,13 +29,16 @@ isBrowser:boolean=false;
     ngOnInit() {
     this.form = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email, Validators.maxLength(20)]),
-      firstName: new FormControl('', [Validators.required, Validators.maxLength(20)]),
-      lastName: new FormControl('', [Validators.required, Validators.maxLength(20)]),
+      firstName: new FormControl('', [Validators.required, Validators.maxLength(20), this.noNumbersValidator]),
+      lastName: new FormControl('', [Validators.required, Validators.maxLength(20), this.noNumbersValidator]),
       address: new FormControl('', [Validators.required, Validators.maxLength(20)]),
       phone: new FormControl('', [Validators.required, Validators.pattern(/^\+380\d{9}$/)]),
     });
   }
-
+  noNumbersValidator(control: FormControl): { [key: string]: any } | null {
+    const forbidden = /\d/.test(control.value);
+    return forbidden ? { 'forbiddenValue': { value: control.value } } : null;
+  }
   close()
  {
    setTimeout(() => {
