@@ -8,8 +8,8 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 
-<app-header class="header" (BasketClose)="display($event)"></app-header>
-  <app-basket (closeBasket)="close()" *ngIf="displayBasket"></app-basket>
+<app-header *ngIf="show" class="header" (BasketClose)="display($event)"></app-header>
+  <app-basket  (closeBasket)="close()" *ngIf="displayBasket&&show"></app-basket>
 
 
   <router-outlet ></router-outlet>
